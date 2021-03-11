@@ -50,7 +50,7 @@ module.exports = async (client, message) => {
          return;
       }
 
-      if (command.category.toLowerCase === 'moderators' && !member.hasPermission('ADMINISTRATOR')) {
+      if (command.category.toLowerCase() === 'moderators' && !member.hasPermission('ADMINISTRATOR')) {
          return channel.send(embeds.error('You need admin permissions to use this command.'));
       }
 

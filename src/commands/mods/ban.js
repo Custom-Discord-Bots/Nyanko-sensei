@@ -18,14 +18,20 @@ module.exports = {
    cooldown: 50,
   
    async run(ctx) {
-      const userID = ctx.args[0].replace('<', '').replace('!', '').replace('@', '').replace('>');
-      const member = await ctx.guild.members.fetch(userID);
+      const userID = ctx.args[0].replace('<', '').replace('!', '').replace('@', '').replace('>', '');
+      let member;
+      try {
+         member = await ctx.guild.members.fetch(userID);
+      } catch {
+         return ctx.sendEmbed(embeds.error('You need to provide a valid user mention or user ID'));
+      }
 
       if (!member) {
          return ctx.sendEmbed(embeds.error('You need to provide a valid user mention or user ID'));
       }
 
-      const reason = ctx.args.shift().join(' ');
+      ctx.args.shift();
+      const reason = ctx.args.join(' ');
 
       if (!reason) {
          return ctx.sendEmbed(embeds.error('Provide a reason please'));      
