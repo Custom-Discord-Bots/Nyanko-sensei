@@ -34,10 +34,10 @@ async function handleSession(channelID, member, notiChat, firstTime) {
 }
 
 async function handleRoles(oldState, newState) {
-   if (newState.channelID === '808682176677019728') {
+   if (newState && newState.channelID === '808682176677019728') {
       await newState.member.roles.remove(rolesToHandle);
    // eslint-disable-next-line max-len
-   } else if ((oldState.channel && oldState.channel.parentID === '777053324775260160') && (newState.channel ? newState.channel.parentID !== '777053324775260160' : true)) {
+   } else if (oldState && (oldState.channel && oldState.channel.parentID === '777053324775260160') && (newState.channel ? newState.channel.parentID !== '777053324775260160' : true)) {
       await oldState.member.roles.add(rolesToHandle);
    }
 }
