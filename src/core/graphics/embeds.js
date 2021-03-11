@@ -6,7 +6,7 @@ const reactions = require('./reactions');
 module.exports = {
    info(color, description) {
       return new MessageEmbed()
-         .setColor(color || colors.primary)
+         .setColor('#2f3136')
          .setTitle('Info')
          .setDescription(description);
    },
@@ -33,12 +33,14 @@ module.exports = {
 
    sessionGoalQuestion() {
       return new MessageEmbed()
+         .setColor('#2f3136')
          .setDescription(`${reactions.x_extended} I noticed that you haven't posted a session goal in <#808687465602613258> yet.`
             + '\nPlease do so within 5 minutes, otherwise you will be kicked out from the study room.');
    },
 
    thxSessionGoal(userID, goal) {
       return new MessageEmbed()
+         .setColor('#2f3136')
          .setDescription(`${reactions.ok_extended} <@${userID}> Thank you for posting your session goal:`
             + `\n\n${goal}`
             + '\n\nGood luck! I will check your progress later and will ask you to post another goal after one hour.');
@@ -46,6 +48,7 @@ module.exports = {
 
    sessionGoalReminder() {
       return new MessageEmbed()
+         .setColor('#2f3136')
          .setDescription(`${reactions.error_extended} It's been one hour since you posted your last session goal. Did you finish it?`
             + '\nIf yes, please post a new session goal. If no, kindly repost it.'
             + '\nPlease do so within 5 minutes, otherwise you will be kicked out from the study room.');
@@ -53,16 +56,25 @@ module.exports = {
 
    ban(member, reason) {
       return new MessageEmbed()
-         .setDescription(`**_${member.user.tag} has been banned_ || ${reason}**`);
+         .setColor('#2f3136')
+         .setDescription(`**_${member.user.tag} has been banned** | ${reason}`);
    },
 
    warn(member, reason) {
       return new MessageEmbed()
-         .setDescription(`**_${member.user.tag} has been warned_ || ${reason}**`);
+         .setColor('#2f3136')
+         .setDescription(`**_${member.user.tag} has been warned** | ${reason}`);
    },
 
    mute(member, time, reason) {
       return new MessageEmbed()
-         .setDescription(`**_${member.user.tag} has been muted for ${time}_ || ${reason}**`);
+         .setColor('#2f3136')
+         .setDescription(`**${member.user.tag} has been muted for ${time}** | ${reason}`);
+   },
+
+   newTicket(username) {
+      return new MessageEmbed()
+         .setColor('#2f3136')
+         .setDescription(`**New Ticket from _${username}_**`);
    },
 };
