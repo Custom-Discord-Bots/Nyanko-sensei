@@ -1,0 +1,9 @@
+{
+  "name": "わくわくむら",
+  "status": "over {n} members | DM for help!",
+  "statusType": "WATCHING",
+  "token": "token",
+  "intents": [
+    "GUILD_MESSAGES"
+  ]
+}

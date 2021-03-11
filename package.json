@@ -1,0 +1,35 @@
+{
+  "name": "nyanko-sensei",
+  "version": "1.0.0",
+  "description": "Ticket & moderation bot.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Custom-Discord-Bots/Nyanko-sensei.git"
+  },
+  "author": "Giulio Pimenoff Verdolin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Custom-Discord-Bots/Nyanko-sensei/issues"
+  },
+  "homepage": "https://github.com/Custom-Discord-Bots/Nyanko-sensei#readme",
+  "dependencies": {
+    "beautify.log": "^2.1.2",
+    "bufferutil": "^4.0.3",
+    "discord.js-light": "^3.5.4",
+    "erlpack": "github:discord/erlpack",
+    "require-all": "^3.0.0",
+    "utf-8-validate": "^5.0.4",
+    "zlib-sync": "^0.1.7"
+  },
+  "devDependencies": {
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.7"
+  }
+}
