@@ -30,7 +30,7 @@ module.exports = async (client, message) => {
          return;
       }
 
-      const {command, args} = commandCheck;
+      const { command, args } = commandCheck;
 
       if (command.reqArgs && !args.length) {
          await channel.send(embeds.error('The command is missing some arguments'));
@@ -50,6 +50,9 @@ module.exports = async (client, message) => {
          return;
       }
 
+      if (command.category.toLowerCase === 'moderators' && !member.hasPermission('ADMINISTRATOR')) {
+         return channel.send(embeds.error('You need admin permissions to use this command.'));
+      }
 
       // COOLDOWN CHECK
       const userOnCooldown = await cooldownManager.isCmdOnCooldown(member.id, command);
@@ -71,5 +74,4 @@ module.exports = async (client, message) => {
    } catch (e) {
       Logger.error('Error from message event', e);
    }
-}
-;
+};

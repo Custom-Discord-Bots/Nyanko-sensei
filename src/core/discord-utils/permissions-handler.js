@@ -25,21 +25,17 @@ module.exports = {
       SEND_MESSAGES: 'Send Messages',
       EMBED_LINKS: 'Embed Links',
       ADD_REACTIONS: 'Add Reactions',
-      USE_EXTERNAL_EMOJIS: 'Use External Emojis',
-      ATTACH_FILES: 'Attach Files',
    },
 
    guildPerms: {
-      MANAGE_CHANNELS: 'Manage Channels',
+      KICK_MEMBERS: 'Kick members',
+      BAN_MEMBERS: 'Ban members',
       MANAGE_ROLES: 'Manage Roles',
       MOVE_MEMBERS: 'Move Members',
-      CREATE_INSTANT_INVITE: 'Create Invite',
    },
 
    voiceChannelPerms: {
       VIEW_CHANNEL: 'View Channel',
       CONNECT: 'Connect',
-      SPEAK: 'Speak',
-      USE_VAD: 'Use Voice Activity',
    },
 };

@@ -37,6 +37,10 @@ module.exports = async (client, oldState, newState) => {
          return;
       }
 
+      if (newState === null) {
+         return;
+      }
+
       if (newState.channelID === oldState.channelID) {
          return;
       }

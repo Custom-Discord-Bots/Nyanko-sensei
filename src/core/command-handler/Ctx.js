@@ -21,8 +21,8 @@ module.exports = class Ctx {
       await this.channel.send(text, options);
    }
 
-   async sendEmbed(embed, options = {}) {
-      await this.channel.send(embed, options);
+   async sendEmbed(embed) {
+      await this.channel.send(embed);
    }
 
    async sendTextAndEmbed(text, embed, options = {}) {

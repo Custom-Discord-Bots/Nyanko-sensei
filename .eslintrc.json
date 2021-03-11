@@ -20,6 +20,7 @@
         "import/no-dynamic-require": "off",
         "max-len": ["error", 150],
         "no-trailing-spaces": "off",
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+        "consistent-return": "off"
     }
 }
