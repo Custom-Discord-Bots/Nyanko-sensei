@@ -14,10 +14,10 @@ module.exports = {
    },
 
    initEssentialEvents(client = discordClient, args = { launchTimestamp: Date.now() }) {
-      status = status.replace('{n}', client.guilds.resolve('434318830416822273').memberCount);
-
       // Ready event, which gets fired only once when the bot reaches the ready state
       client.once('ready', async () => {
+         status = status.replace('{n}', client.guilds.resolve('434318830416822273').memberCount);
+         
          const updateBotStatus = async () => {
             await client.user.setActivity(status, { type: statusType });
          };

@@ -18,7 +18,7 @@
         "nonblock-statement-body-position": "off",
         "global-require": "off",
         "import/no-dynamic-require": "off",
-        "max-len": ["error", 120],
+        "max-len": ["error", 150],
         "no-trailing-spaces": "off",
         "no-param-reassign": "off"
     }

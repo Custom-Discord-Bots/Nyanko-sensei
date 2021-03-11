@@ -8,7 +8,7 @@ const { token, intents } = require('./config/bot-config.json');
 // Create the Discord client with the appropriate options
 const client = new Discord.Client({
    disableMentions: 'everyone',
-   messageCacheMaxSize: 30,
+   messageCacheMaxSize: 20,
    messageEditHistoryMaxSize: 0,
    ws: {
       // List of intents for the bot, can be found at
@@ -20,7 +20,7 @@ const client = new Discord.Client({
    cacheChannels: true,
    cacheOverwrites: true,
    cacheRoles: true,
-   cacheEmojis: false,
+   cacheEmojis: true,
    cachePresences: false,
 });
 

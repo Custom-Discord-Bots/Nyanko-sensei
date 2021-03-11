@@ -20,7 +20,7 @@ module.exports = async (client, message) => {
          return;
       }
 
-      const {guild, channel, member} = message;
+      const { guild, channel, member } = message;
 
 
       // COMMAND CHECK
@@ -56,17 +56,6 @@ module.exports = async (client, message) => {
       if (userOnCooldown) {
          await channel.send(embeds.error('Cool down mate'));
          return;
-      }
-
-
-      /*
-        TIP MESSAGES
-         Generating a random number between 1 and randMax
-         If the resulting value equals 1 then send a tip message
-       */
-      const randMax = 10;
-      if ((Math.floor(Math.random() * randMax) + 1) === 1) {
-         await channel.send(embeds.tip());
       }
 
 
