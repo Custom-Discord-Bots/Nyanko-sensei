@@ -28,7 +28,7 @@ async function handleSession(channelID, member, notiChat, firstTime) {
    });
    messageCollector.on('end', async () => {
       if (!collected && member.voice.channelID === channelID) {
-         await member.kick('User hasn\'t sent a session goal');
+         await member.voice.kick('User hasn\'t sent a session goal');
       }
    });
 }
