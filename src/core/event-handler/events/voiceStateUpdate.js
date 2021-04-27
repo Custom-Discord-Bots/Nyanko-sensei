@@ -43,7 +43,7 @@ async function handleRoles(oldState, newState) {
 }
 
 module.exports = async (client, oldState, newState) => {
-   if (newState.channelID === '834643133513072680' || oldState.channelID === '834643133513072680') {
+   if (newState.channelID === '834643133513072680') {
       return;
    }
    try {
