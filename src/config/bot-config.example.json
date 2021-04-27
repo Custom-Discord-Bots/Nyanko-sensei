@@ -4,6 +4,7 @@
   "statusType": "WATCHING",
   "token": "token",
   "intents": [
+    "GUILDS",
     "GUILD_MESSAGES",
     "GUILD_VOICE_STATES"
   ]
