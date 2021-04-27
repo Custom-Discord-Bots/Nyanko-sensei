@@ -15,7 +15,7 @@ async function handleSession(channelID, member, notiChat, firstTime) {
    const messageFilter = (m) => m.author.id === userID;
    const messageCollector = notiChat.createMessageCollector(messageFilter, { time: 300000 });
    let collected = false;
-   
+
    messageCollector.on('collect', async (m) => {
       collected = true;
       messageCollector.stop();
@@ -43,11 +43,14 @@ async function handleRoles(oldState, newState) {
 }
 
 module.exports = async (client, oldState, newState) => {
+   if (newState.channelID === '834643133513072680' || oldState.channelID === '834643133513072680') {
+      return;
+   }
    try {
       await handleRoles(oldState, newState);
 
       // eslint-disable-next-line max-len
-      if (newState === null || !newState.channel || newState.channel.parentID !== '777053324775260160' || newState.channelID === '808682176677019728') {
+      if (!newState.channel || newState.channel.parentID !== '777053324775260160' || newState.channelID === '808682176677019728') {
          return;
       }
 
@@ -60,7 +63,7 @@ module.exports = async (client, oldState, newState) => {
          return;
       }
 
-      handleSession(newState.channelID, newState.member, notiChat, true);
+      await handleSession(newState.channelID, newState.member, notiChat, true);
    } catch (e) {
       logger.error('Error in Voice State Update event', e.stack);
    }
