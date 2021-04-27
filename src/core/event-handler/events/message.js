@@ -28,15 +28,23 @@ module.exports = async (client, message) => {
          const mainServer = client.guilds.resolve('434318830416822273');
 
          const sChannel = await mainServer.channels.create(message.author.username, {
-            parent: '760324418743828490',
+            parent: '834979470187823114',
             permissionOverwrites: [
                {
                   id: mainServer.id,
                   deny: ['VIEW_CHANNEL'],
                },
+               {
+                  id: '834975515668512790',
+                  allow: ['VIEW_CHANNEL'],
+               },
+               {
+                  id: '800870831109832764',
+                  allow: ['VIEW_CHANNEL'],
+               },
             ],
          });
-         
+
          await sChannel.send(embeds.newTicket(message.author.username));
          await sChannel.send(content);
 
