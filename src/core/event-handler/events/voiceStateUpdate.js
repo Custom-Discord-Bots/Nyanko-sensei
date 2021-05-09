@@ -1,8 +1,6 @@
 const embeds = require('../../graphics/embeds');
 const logger = require('../../utils/logger');
 
-const rolesToHandle = ['757558822272499753', '765767478982213634', '792647495183630336'];
-
 async function handleSession(channelID, member, notiChat, firstTime) {
    const userID = member.id;
 
@@ -33,28 +31,16 @@ async function handleSession(channelID, member, notiChat, firstTime) {
    });
 }
 
-async function handleRoles(oldState, newState) {
-   if (newState && newState.channelID === '808682176677019728') {
-      await newState.member.roles.remove(rolesToHandle);
-   // eslint-disable-next-line max-len
-   } else if (oldState && (oldState.channel && oldState.channel.parentID === '777053324775260160') && (newState && newState.channel ? newState.channel.parentID !== '777053324775260160' : true)) {
-      await oldState.member.roles.add(rolesToHandle);
-   }
-}
-
 module.exports = async (client, oldState, newState) => {
-   if (newState.channelID === '834643133513072680') {
-      return;
-   }
    try {
-      await handleRoles(oldState, newState);
-
-      // eslint-disable-next-line max-len
-      if (!newState.channel || newState.channel.parentID !== '777053324775260160' || newState.channelID === '808682176677019728') {
-         return;
+      if (newState.channelID === '834643133513072680') {
+         await newState.member.roles.remove('757558822272499753');
+         // eslint-disable-next-line max-len
+      } else if ((oldState.channel && oldState.channel.parentID === '777053324775260160') && (newState && newState.channel ? newState.channel.parentID !== '777053324775260160' : true)) {
+         await oldState.member.roles.add('757558822272499753');
       }
-
-      if (newState.channelID === oldState.channelID) {
+      // eslint-disable-next-line max-len
+      if (newState.channelID === '834643133513072680' || !newState.channel || newState.channel.parentID !== '777053324775260160' || newState.channelID === oldState.channelID) {
          return;
       }
 
