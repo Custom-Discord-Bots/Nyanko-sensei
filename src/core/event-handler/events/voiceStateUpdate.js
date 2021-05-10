@@ -33,14 +33,17 @@ async function handleSession(channelID, member, notiChat, firstTime) {
 
 module.exports = async (client, oldState, newState) => {
    try {
-      if (newState && newState.channelID === '834643133513072680') {
+      // eslint-disable-next-line no-nested-ternary,max-len
+      if (newState && newState.channel && newState.channel.parentID === '777053324775260160' && (oldState ? oldState.channel ? oldState.channel.parentID !== '777053324775260160' : true : true)) {
          await newState.member.roles.remove('757558822272499753');
+         await newState.member.roles.add('784677976884510790');
          // eslint-disable-next-line max-len,no-nested-ternary
-      } else if ((oldState.channel && oldState.channel.parentID === '777053324775260160') && (newState ? newState.channel ? newState.channel.parentID !== '777053324775260160' : true : true)) {
+      } else if ((oldState && oldState.channel && oldState.channel.parentID === '777053324775260160') && (newState ? newState.channel ? newState.channel.parentID !== '777053324775260160' : true : true)) {
          await oldState.member.roles.add('757558822272499753');
+         await oldState.member.roles.remove('784677976884510790');
       }
       // eslint-disable-next-line max-len
-      if (!newState || newState.channelID === '834643133513072680' || !newState.channel || newState.channel.parentID !== '777053324775260160' || newState.channelID === oldState.channelID) {
+      if (!newState || newState.channelID === '834643133513072680' || !newState.channel || newState.channel.parentID !== '777053324775260160' || (oldState && newState.channelID === oldState.channelID)) {
          return;
       }
 
