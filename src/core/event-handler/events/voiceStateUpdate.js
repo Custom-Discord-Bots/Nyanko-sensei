@@ -33,6 +33,9 @@ async function handleSession(channelID, member, notiChat, firstTime) {
 
 module.exports = async (client, oldState, newState) => {
    try {
+      if ((newState && newState.member.user.bot) || (oldState && oldState.member.user.bot)) {
+         return;
+      }
       // eslint-disable-next-line no-nested-ternary,max-len
       if (newState && newState.channel && newState.channel.parentID === '777053324775260160' && (oldState ? oldState.channel ? oldState.channel.parentID !== '777053324775260160' : true : true)) {
          await newState.member.roles.remove('757558822272499753');
